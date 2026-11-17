@@ -1,0 +1,46 @@
+
+:root {
+    /* Main colours */
+    --color-primary: #49365F;
+    --color-secondary: #B9A3E8;
+    --color-accent: #F5B99F;
+
+    /* Background colours */
+    --color-background: #FFF8ED;
+    --color-surface: #FFFFFF;
+    --color-surface-soft: #F2ECFA;
+
+    /* Text colours */
+    --color-heading: #352443;
+    --color-text: #62576B;
+    --color-light-text: #887C91;
+
+    /* Borders and shadows */
+    --color-border: #E8DFF0;
+    --shadow-soft: 0 8px 25px rgba(73, 54, 95, 0.08);
+    --shadow-hover: 0 15px 35px rgba(73, 54, 95, 0.15);
+
+    /* Fonts */
+    --font-heading: Georgia, "Times New Roman", serif;
+    --font-body: "Segoe UI", Arial, sans-serif;
+
+    /* Font sizes */
+    --font-size-small: 0.9rem;
+    --font-size-normal: 1rem;
+    --font-size-large: 1.25rem;
+    --font-size-title: clamp(2.5rem, 6vw, 5rem);
+
+    /* Spacing */
+    --space-small: 0.75rem;
+    --space-medium: 1.5rem;
+    --space-large: 3rem;
+    --space-section: 6rem;
+
+    /* Layout */
+    --container-width: 1150px;
+    --border-radius: 18px;
+    --border-radius-large: 30px;
+
+    /* Transitions */
+    --transition: all 0.3s ease;
+}

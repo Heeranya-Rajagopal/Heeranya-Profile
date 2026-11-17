@@ -1,0 +1,1203 @@
+
+/* ========================================
+   1. GLOBAL RESET AND BASE STYLES
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* ========================================
+   2. COMMON SECTION STYLES
+======================================== */
+
+section {
+    padding: var(--space-section) 8%;
+}
+
+section h2 {
+    font-family: var(--font-heading);
+    color: var(--color-heading);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-heading p {
+    color: var(--color-text);
+}
+
+
+/* ========================================
+   3. HEADER AND NAVIGATION
+======================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 248, 237, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 4px 18px rgba(73, 54, 95, 0.06);
+}
+
+nav {
+    max-width: 1300px;
+    margin: auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.logo span {
+    color: #B9A3E8;
+}
+
+.logo small {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.logo img {
+    width: 75px;
+    height: 65px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Navigation links */
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    position: relative;
+    display: block;
+    padding: 0.7rem 1.1rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+/* Animated underline */
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover::after {
+    width: 55%;
+}
+
+/* Hover effect */
+
+nav ul li a:hover {
+    color: var(--color-primary);
+    background: var(--color-surface-soft);
+    transform: translateY(-2px);
+}
+
+/* Responsive navbar */
+
+@media (max-width: 700px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+    }
+
+    nav ul li a {
+        padding: 0.6rem 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+/* ========================================
+   4. HERO SECTION
+======================================== */
+
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5rem 8%;
+    background:
+        radial-gradient(circle at 10% 20%,
+        rgba(185, 163, 232, 0.25), transparent 30%),
+        radial-gradient(circle at 90% 80%,
+        rgba(245, 185, 159, 0.25), transparent 30%),
+        var(--color-background);
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-title);
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: var(--font-size-large);
+    color: var(--color-text);
+    margin-bottom: 2rem;
+}
+
+.hero a {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 30px;
+    transition: var(--transition);
+}
+
+.hero a:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-heading);
+    transform: translateY(-4px);
+}
+
+
+/* ========================================
+   5. PROFESSIONAL JOURNEY
+======================================== */
+
+/* ========================================
+   PROFESSIONAL JOURNEY SECTION
+======================================== */
+
+.journey {
+    padding: 5rem 1.5rem;
+    background: var(--color-background);
+}
+
+/* Heading */
+
+.journey-heading {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.journey-heading h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--color-heading);
+    margin-bottom: 1rem;
+}
+
+.journey-heading p {
+    color: var(--color-text);
+    font-size: var(--font-size-large);
+    line-height: 1.6;
+}
+
+/* Timeline container */
+
+.journey-timeline {
+    position: relative;
+    max-width: 1100px;
+    margin: auto;
+    padding: 1rem 0;
+}
+
+/* Vertical connecting line */
+
+.journey-timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: linear-gradient(
+        to bottom,
+        var(--color-secondary),
+        var(--color-accent),
+        var(--color-secondary)
+    );
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+
+/* Each milestone */
+
+.journey-item {
+    position: relative;
+    width: 50%;
+    padding: 1.5rem 3rem;
+}
+
+/* Alternating cards */
+
+.journey-item:nth-child(odd) {
+    left: 0;
+}
+
+.journey-item:nth-child(even) {
+    left: 50%;
+}
+
+/* Timeline dots */
+
+.journey-dot {
+    position: absolute;
+    top: 2rem;
+    right: -25px;
+    width: 50px;
+    height: 50px;
+    background: var(--color-surface);
+    border: 4px solid var(--color-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    z-index: 2;
+    box-shadow: var(--shadow-soft);
+}
+
+.journey-item:nth-child(even) .journey-dot {
+    left: -25px;
+}
+
+/* Milestone cards */
+
+.journey-card {
+    background: var(--color-surface);
+    padding: 2rem;
+    border-radius: var(--border-radius-large);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+}
+
+.journey-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Date */
+
+.journey-date {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--color-surface-soft);
+    color: var(--color-primary);
+    border-radius: 20px;
+    font-size: var(--font-size-small);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Titles */
+
+.journey-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    margin-bottom: 0.8rem;
+}
+
+.journey-card h4 {
+    color: var(--color-heading);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.journey-role {
+    color: var(--color-light-text);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.journey-card p {
+    color: var(--color-text);
+    line-height: 1.7;
+}
+
+/* Featured project inside college card */
+
+.journey-project {
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    background: var(--color-surface-soft);
+    border-left: 4px solid var(--color-secondary);
+    border-radius: 12px;
+}
+
+.journey-project h4 {
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 0.7rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 768px) {
+
+    .journey {
+        padding: 4rem 1rem;
+    }
+
+    .journey-timeline::before {
+        left: 20px;
+    }
+
+    .journey-item,
+    .journey-item:nth-child(even),
+    .journey-item:nth-child(odd) {
+        width: 100%;
+        left: 0;
+        padding: 1rem 0 1rem 60px;
+    }
+
+    .journey-dot,
+    .journey-item:nth-child(even) .journey-dot {
+        left: -5px;
+        right: auto;
+        width: 50px;
+        height: 50px;
+    }
+
+    .journey-card {
+        padding: 1.5rem;
+    }
+
+    .journey-card h3 {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* ========================================
+   6. PERSONAL INTERESTS SECTION
+======================================== */
+
+.interests {
+    padding: 6rem 1.5rem;
+    background: var(--color-background);
+}
+
+/* ========================================
+   SECTION HEADING
+======================================== */
+
+.interests-heading {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.interests-heading h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--color-heading);
+    margin-bottom: 1rem;
+}
+
+.interests-heading p {
+    color: var(--color-text);
+    font-size: var(--font-size-large);
+    line-height: 1.6;
+}
+
+/* ========================================
+   INTERESTS GRID
+======================================== */
+
+.interests-container {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+/* ========================================
+   INTEREST CARDS
+======================================== */
+
+.interest-card {
+    position: relative;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-large);
+
+    box-shadow: var(--shadow-soft);
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+/* ========================================
+   INTEREST IMAGES
+======================================== */
+
+.interest-card img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    /* Show the complete collage */
+    object-fit: contain;
+    object-position: center;
+
+    background: var(--color-surface-soft);
+
+    transition: transform 0.4s ease;
+}
+
+/* ========================================
+   HOVER EFFECT
+======================================== */
+
+.interest-card:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-hover);
+}
+
+.interest-card:hover img {
+    transform: scale(1.02);
+}
+
+/* ========================================
+   INTEREST CONTENT
+======================================== */
+
+.interest-content {
+    position: static;
+
+    padding: 1.5rem;
+
+    background: var(--color-surface);
+    color: var(--color-text);
+
+    flex: 1;
+}
+
+/* Small Category Label */
+
+.interest-label {
+    display: inline-block;
+
+    color: var(--color-primary);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    margin-bottom: 0.7rem;
+}
+
+/* Card Title */
+
+.interest-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.7rem;
+
+    color: var(--color-heading);
+
+    margin-bottom: 0.7rem;
+}
+
+/* Card Description */
+
+.interest-content p {
+    color: var(--color-text);
+
+    font-size: 0.95rem;
+    line-height: 1.6;
+
+    margin-bottom: 1rem;
+}
+
+/* ========================================
+   FAVOURITE TAGS
+======================================== */
+
+.interest-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 0.5rem;
+}
+
+.interest-tags span {
+    display: inline-block;
+
+    padding: 0.45rem 0.8rem;
+
+    background: var(--color-surface-soft);
+    color: var(--color-primary);
+
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+
+    font-size: 0.8rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+/* TABLET - 2 COLUMNS */
+
+@media (max-width: 900px) {
+
+    .interests-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+
+    .interest-content {
+        padding: 1.25rem;
+    }
+
+    .interest-content h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* MOBILE - 1 COLUMN */
+
+@media (max-width: 600px) {
+
+    .interests {
+        padding: 4rem 1rem;
+    }
+
+    .interests-heading {
+        margin-bottom: 2.5rem;
+    }
+
+    .interests-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .interest-content {
+        padding: 1.25rem;
+    }
+
+    .interest-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .interest-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* ========================================
+   7. FAMILY SECTION
+======================================== */
+
+.family {
+    padding: 6rem 1.5rem;
+    background: var(--color-background);
+}
+
+/* Heading */
+
+.family-heading {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.family-heading h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--color-heading);
+    margin-bottom: 1rem;
+}
+
+.family-heading p {
+    color: var(--color-text);
+    font-size: var(--font-size-large);
+    line-height: 1.6;
+}
+
+/* Lavender layout */
+
+.family-container {
+    max-width: 1360px;
+    margin: auto;
+    padding: 2rem;
+    background: var(--color-surface-soft);
+    border-radius: 35px;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+}
+
+/* Full family photo */
+
+.family-featured {
+    grid-column: 1 / -1;
+    background: var(--color-surface);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+}
+
+.family-featured img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    border-radius: 20px;
+}
+
+
+.family-featured h3 {
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin: 1.25rem 0 0.5rem;
+}
+
+.family-featured p {
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* ========================================
+   FAMILY FLIP CARDS
+======================================== */
+
+.family-flip-card {
+    width: 100%;
+    min-width: 0;
+    height: 450px;
+    perspective: 1200px;
+    cursor: pointer;
+}
+
+.family-flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+}
+
+/* Flip animation */
+
+.family-flip-card:hover .family-flip-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front and back */
+
+.family-card-front,
+.family-card-back {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1.25rem;
+
+    border-radius: var(--border-radius-large);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+}
+
+/* Front */
+
+.family-card-front {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+}
+
+.family-card-front img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    background: var(--color-surface-soft);
+    border-radius: 18px;
+    display: block;
+}
+
+.family-card-front h3 {
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin: 1.25rem 0 0.5rem;
+}
+
+.family-card-front p {
+    color: var(--color-light-text);
+    font-size: var(--font-size-small);
+}
+
+/* Back */
+
+.family-card-back {
+    background: linear-gradient(
+        145deg,
+        var(--color-secondary),
+        #E8DDF8
+    );
+
+    transform: rotateY(180deg);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--color-border);
+}
+
+.family-card-back h3 {
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.family-card-back p {
+    color: var(--color-heading);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* Hover shadow */
+
+.family-flip-card:hover .family-card-front,
+.family-flip-card:hover .family-card-back {
+    box-shadow: var(--shadow-hover);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 950px) {
+
+    .family-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .family-featured {
+        grid-column: 1 / -1;
+    }
+
+    .family-featured img {
+        height: 350px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .family {
+        padding: 4rem 1rem;
+    }
+
+    .family-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .family-featured {
+        grid-column: auto;
+        padding: 1rem;
+    }
+
+    .family-featured img {
+        height: 280px;
+    }
+
+    .family-flip-card {
+        height: 420px;
+    }
+
+    .family-card-front img {
+        height: 250px;
+    }
+}
+
+/* ========================================
+   8. HOBBIES SECTION
+======================================== */
+
+.hobbies {
+    background-color: var(--color-background);
+    padding-bottom: var(--space-section);
+}
+
+.hobby-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    max-width: var(--container-width);
+    margin: auto;
+}
+
+.hobby-card {
+    padding: 2rem;
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+}
+
+.hobby-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.hobby-card h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+}
+
+
+/* ========================================
+   9. IMAGE SUPPORT
+======================================== */
+
+.family-card img,
+.hobby-card img,
+.interest-card img,
+.journey-item img {
+    max-width: 100%;
+}
+
+
+/* ========================================
+   10. FOOTER
+======================================== */
+
+/* Footer */
+.footer {
+    position: relative;
+    padding: 5rem 2rem 1.5rem;
+    background: var(--color-primary);
+    color: white;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.footer-label {
+    color: var(--color-accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+}
+
+.footer h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.footer h2 span {
+    color: var(--color-accent);
+}
+
+.footer-description {
+    max-width: 550px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+    color: #eee5f5;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.9rem 1.5rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.social-links a span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.social-links a:hover {
+    background: var(--color-surface);
+    color: var(--color-primary);
+    transform: translateY(-5px);
+}
+
+/* Build Credit */
+.build-credit {
+    font-size: 0.9rem;
+    color: #eee5f5;
+    margin-bottom: 2rem;
+}
+
+.build-credit span {
+    margin: 0 0.5rem;
+    color: var(--color-accent);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: #eee5f5;
+}
+
+/* Back to Top */
+.back-to-top {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+}
+
+@media (max-width: 600px) {
+    .footer {
+        padding: 4rem 1rem 1.5rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .build-credit {
+        line-height: 1.8;
+    }
+
+    .back-to-top {
+        position: static;
+        margin-top: 2rem;
+    }
+}
+
+
+/* ========================================
+   11. ACCESSIBILITY
+======================================== */
+
+a:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+
+/* ========================================
+   12. TABLET RESPONSIVENESS
+======================================== */
+
+@media (max-width: 900px) {
+
+    .interest-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .family-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .family-featured {
+        grid-column: 1 / -1;
+    }
+
+    .family-featured img {
+        height: 300px;
+    }
+
+    .hobby-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ========================================
+   13. MOBILE RESPONSIVENESS
+======================================== */
+
+@media (max-width: 600px) {
+
+    section {
+        padding: 4rem 5%;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .hero {
+        min-height: 70vh;
+        padding: 4rem 5%;
+    }
+
+    .interest-container,
+    .family-container,
+    .hobby-container {
+        grid-template-columns: 1fr;
+    }
+
+    .family-featured {
+        grid-column: auto;
+    }
+
+    .family-featured img {
+        height: 260px;
+    }
+
+    .family-flip-card {
+        height: 350px;
+    }
+
+    .family-card-front img {
+        height: 220px;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+
+}
