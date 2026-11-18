@@ -44,3 +44,42 @@
     /* Transitions */
     --transition: all 0.3s ease;
 }
+
+
+/* Dark Mode */
+html[data-theme="dark"] {
+    --color-primary: #A78BFA;
+    --color-secondary: #6D5A9C;
+    --color-accent: #F4A7A7;
+
+    --color-background: #171421;
+    --color-surface: #242033;
+    --color-surface-soft: #302943;
+
+    --color-heading: #F5F0FF;
+    --color-text: #D0C7DF;
+    --color-light-text: #A99DBB;
+
+    --color-border: #403653;
+    --shadow-soft: 0 8px 25px rgba(0, 0, 0, 0.25);
+    --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Pastel Mode */
+html[data-theme="pastel"] {
+    --color-primary: #8A6B9D;
+    --color-secondary: #C5A9E8;
+    --color-accent: #F4A6B5;
+
+    --color-background: #FFF0F5;
+    --color-surface: #FFFFFF;
+    --color-surface-soft: #F3E8FF;
+
+    --color-heading: #563D67;
+    --color-text: #705C78;
+    --color-light-text: #A18CA8;
+
+    --color-border: #EAD7F0;
+    --shadow-soft: 0 8px 25px rgba(138, 107, 157, 0.10);
+    --shadow-hover: 0 15px 35px rgba(138, 107, 157, 0.18);
+}
