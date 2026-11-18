@@ -177,61 +177,252 @@ nav ul li a:hover {
         font-size: 0.9rem;
     }
 }
-/* ========================================
-   4. HERO SECTION
-======================================== */
+
+/* ==============================
+   HERO SECTION
+============================== */
 
 .hero {
-    min-height: 85vh;
+    min-height: 90vh;
+    padding: 5rem 2rem 3rem;
+    background: var(--color-background);
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    text-align: center;
-    padding: 5rem 8%;
-    background:
-        radial-gradient(circle at 10% 20%,
-        rgba(185, 163, 232, 0.25), transparent 30%),
-        radial-gradient(circle at 90% 80%,
-        rgba(245, 185, 159, 0.25), transparent 30%),
-        var(--color-background);
+    position: relative;
+    overflow: hidden;
 }
+
+.hero-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 4rem;
+}
+
+/* LEFT SIDE - CONTENT */
 
 .hero-content {
-    max-width: 850px;
+    max-width: 650px;
 }
 
-.hero h1 {
-    font-family: var(--font-heading);
-    font-size: var(--font-size-title);
+.hero-greeting {
     color: var(--color-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
     margin-bottom: 1.5rem;
 }
 
-.hero p {
-    font-size: var(--font-size-large);
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    color: var(--color-heading);
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+}
+
+.hero-content h1 span {
+    color: var(--color-primary);
+}
+
+.hero-content h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 2.3rem);
+    font-weight: 500;
+    color: var(--color-heading);
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content h2 span {
+    color: var(--color-primary);
+}
+
+.hero-description {
     color: var(--color-text);
+    font-size: 1.05rem;
+    line-height: 1.9;
+    margin-bottom: 1.2rem;
+}
+
+.hero-role {
+    color: var(--color-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.8;
     margin-bottom: 2rem;
 }
 
-.hero a {
-    display: inline-block;
-    padding: 0.9rem 2rem;
-    background-color: var(--color-primary);
-    color: white;
-    border-radius: 30px;
-    transition: var(--transition);
+/* HERO BUTTONS */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-.hero a:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-heading);
+.hero-btn {
+    display: inline-block;
+    padding: 0.9rem 1.6rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background: var(--color-primary);
+    color: white;
+    border: 2px solid var(--color-primary);
+}
+
+.primary-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.secondary-btn {
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.secondary-btn:hover {
+    background: var(--color-primary);
+    color: white;
     transform: translateY(-4px);
 }
 
+/* RIGHT SIDE - PORTRAIT */
+.hero-image {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    height: 550px;
+    margin: auto;
+    isolation: isolate;
+}
 
-/* ========================================
-   5. PROFESSIONAL JOURNEY
-======================================== */
+.hero-photo-decoration {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 85%;
+    height: 90%;
+    background: linear-gradient(135deg, #B9A3E8, #F5B99F);
+    border-radius: 20px;
+    z-index: -1;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 18px;
+    border: 5px solid white;
+    box-shadow: 0 18px 40px rgba(73, 54, 95, 0.16);
+}
+
+@media (max-width: 650px) {
+    .hero-image {
+        max-width: 340px;
+        height: 450px;
+    }
+
+    .hero-photo-decoration {
+        top: -10px;
+        right: -10px;
+    }
+}
+/* BOTTOM TEXT */
+
+.hero-bottom-text {
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 0.9rem;
+    margin-top: 3rem;
+    letter-spacing: 0.5px;
+}
+
+/* ==============================
+   TABLET RESPONSIVENESS
+============================== */
+
+@media (max-width: 900px) {
+
+    .hero {
+        padding: 4rem 1.5rem;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr 0.8fr;
+        gap: 2rem;
+    }
+
+    .hero-image {
+        height: 450px;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+}
+
+/* ==============================
+   MOBILE RESPONSIVENESS
+============================== */
+
+@media (max-width: 650px) {
+
+    .hero {
+        min-height: auto;
+        padding: 3rem 1.2rem;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin: auto;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        width: 85%;
+        max-width: 350px;
+        height: 430px;
+    }
+
+    .hero-bottom-text {
+        margin-top: 2rem;
+    }
+}
+
 
 /* ========================================
    PROFESSIONAL JOURNEY SECTION
@@ -910,54 +1101,213 @@ nav ul li a:hover {
     }
 }
 
-/* ========================================
-   8. HOBBIES SECTION
-======================================== */
+
+/* ==============================
+   HOBBIES SECTION
+============================== */
+
+/* ==============================
+   HOBBIES SECTION
+============================== */
 
 .hobbies {
-    background-color: var(--color-background);
-    padding-bottom: var(--space-section);
+    padding: 6rem 2rem;
+    background: var(--color-surface-soft);
+    scroll-margin-top: 130px;
 }
 
-.hobby-container {
+
+/* SECTION HEADING */
+
+.hobbies-heading {
+    max-width: 750px;
+    margin: 0 auto 4rem;
+    text-align: center;
+}
+
+.hobbies-label {
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.hobbies-heading h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--color-heading);
+    margin-bottom: 1rem;
+}
+
+.hobbies-heading h2 span {
+    color: var(--color-primary);
+}
+
+.hobbies-heading > p:last-child {
+    color: var(--color-text);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+
+/* INDIVIDUAL HOBBY SECTION */
+
+.hobby-section {
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    padding: 2.5rem;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
-    max-width: var(--container-width);
-    margin: auto;
-}
-
-.hobby-card {
-    padding: 2rem;
-    background-color: var(--color-surface);
-    border-radius: var(--border-radius);
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: center;
+    gap: 3rem;
+    background: var(--color-surface);
     border: 1px solid var(--color-border);
+    border-radius: 25px;
     box-shadow: var(--shadow-soft);
-    transition: var(--transition);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
 }
 
-.hobby-card:hover {
-    transform: translateY(-6px);
+.hobby-section:last-child {
+    margin-bottom: 0;
+}
+
+.hobby-section:hover {
+    transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
 }
 
-.hobby-card h3 {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-    font-size: 1.6rem;
-    margin-bottom: 0.8rem;
+
+/* HOBBY ACCENT COLORS */
+
+.painting-section {
+    border-left: 5px solid #B9A3E8;
+}
+
+.baking-section {
+    border-left: 5px solid #F5B99F;
 }
 
 
-/* ========================================
-   9. IMAGE SUPPORT
-======================================== */
+/* HOBBY INFORMATION */
 
-.family-card img,
-.hobby-card img,
-.interest-card img,
-.journey-item img {
-    max-width: 100%;
+.hobby-info {
+    padding: 1rem;
+}
+
+.hobby-number {
+    display: inline-block;
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.hobby-info h3 {
+    font-family: var(--font-heading);
+    font-size: 2.7rem;
+    color: var(--color-heading);
+    margin-bottom: 1rem;
+}
+
+.hobby-info p {
+    color: var(--color-text);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+
+/* PHOTO GALLERY */
+
+.hobby-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 150px;
+    gap: 12px;
+}
+
+
+/* INDIVIDUAL GALLERY ITEMS */
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 14px;
+    background: var(--color-surface-soft);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+
+/* TABLET RESPONSIVENESS */
+
+@media (max-width: 900px) {
+
+    .hobby-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .hobby-info {
+        padding: 0.5rem;
+    }
+
+    .hobby-gallery {
+        grid-auto-rows: 170px;
+    }
+
+}
+
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 600px) {
+
+    .hobbies {
+        padding: 4rem 1rem;
+    }
+
+    .hobbies-heading {
+        margin-bottom: 2.5rem;
+    }
+
+    .hobby-section {
+        padding: 1.2rem;
+        gap: 1.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .hobby-info h3 {
+        font-size: 2.2rem;
+    }
+
+    .hobby-info p {
+        font-size: 0.9rem;
+    }
+
+    .hobby-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 135px;
+        gap: 8px;
+    }
+
+    .gallery-item {
+        border-radius: 10px;
+    }
+
 }
 
 
