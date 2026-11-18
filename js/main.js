@@ -19,11 +19,11 @@ if (backToTop) {
     });
 }
 
-
 // Theme Switcher
 const themeButtons = document.querySelectorAll(".theme-btn");
 
-const allowedThemes = ["default", "dark", "pastel"];
+const allowedThemes = ["default", "dark", "ocean"];
+
 const savedTheme = localStorage.getItem("selectedTheme");
 
 const activeTheme = allowedThemes.includes(savedTheme)
@@ -32,9 +32,7 @@ const activeTheme = allowedThemes.includes(savedTheme)
 
 function applyTheme(theme) {
 
-    if (!allowedThemes.includes(theme)) {
-        return;
-    }
+    if (!allowedThemes.includes(theme)) return;
 
     if (theme === "default") {
         document.documentElement.removeAttribute("data-theme");
@@ -42,7 +40,6 @@ function applyTheme(theme) {
         document.documentElement.setAttribute("data-theme", theme);
     }
 
-    // Highlight the selected button
     themeButtons.forEach(function (button) {
         button.classList.toggle(
             "active",
@@ -50,14 +47,13 @@ function applyTheme(theme) {
         );
     });
 
-    // Save selected theme
     localStorage.setItem("selectedTheme", theme);
 }
 
-// Apply saved theme when website loads
+// Apply saved theme
 applyTheme(activeTheme);
 
-// Change theme when a button is clicked
+// Handle button clicks
 themeButtons.forEach(function (button) {
     button.addEventListener("click", function () {
         applyTheme(this.dataset.theme);
