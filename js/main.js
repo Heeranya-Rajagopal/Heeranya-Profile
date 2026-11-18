@@ -1,3 +1,4 @@
+
 // Automatically update copyright year
 const currentYear = document.getElementById("current-year");
 
@@ -19,8 +20,8 @@ if (backToTop) {
 }
 
 
-// Theme Selector
-const themeSelector = document.getElementById("theme-selector");
+// Theme Switcher
+const themeButtons = document.querySelectorAll(".theme-btn");
 
 const allowedThemes = ["default", "dark", "pastel"];
 const savedTheme = localStorage.getItem("selectedTheme");
@@ -29,27 +30,36 @@ const activeTheme = allowedThemes.includes(savedTheme)
     ? savedTheme
     : "default";
 
-// Apply the saved theme when the website loads
-if (activeTheme === "default") {
-    document.documentElement.removeAttribute("data-theme");
-} else {
-    document.documentElement.setAttribute("data-theme", activeTheme);
-}
+function applyTheme(theme) {
 
-// Change theme when the visitor selects an option
-if (themeSelector) {
-    themeSelector.value = activeTheme;
+    if (!allowedThemes.includes(theme)) {
+        return;
+    }
 
-    themeSelector.addEventListener("change", function () {
-        const selectedTheme = this.value;
+    if (theme === "default") {
+        document.documentElement.removeAttribute("data-theme");
+    } else {
+        document.documentElement.setAttribute("data-theme", theme);
+    }
 
-        if (selectedTheme === "default") {
-            document.documentElement.removeAttribute("data-theme");
-        } else {
-            document.documentElement.setAttribute("data-theme", selectedTheme);
-        }
-
-        // Remember the selected theme
-        localStorage.setItem("selectedTheme", selectedTheme);
+    // Highlight the selected button
+    themeButtons.forEach(function (button) {
+        button.classList.toggle(
+            "active",
+            button.dataset.theme === theme
+        );
     });
+
+    // Save selected theme
+    localStorage.setItem("selectedTheme", theme);
 }
+
+// Apply saved theme when website loads
+applyTheme(activeTheme);
+
+// Change theme when a button is clicked
+themeButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+        applyTheme(this.dataset.theme);
+    });
+});
