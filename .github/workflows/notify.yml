@@ -3,7 +3,7 @@ name: Deployment Notification
 
 on:
   workflow_run:
-    workflows: ["Deploy to GitHub Pages"]
+    workflows: ["Deploy Profile Website"]
     types:
       - completed
 
